@@ -15,12 +15,11 @@ A boilerplate of things that shouldn't exist.
 - [ ] Redux router
 - [ ] Redux effects
 
-## Example
+## Running
 
-The example application is the typical TodoJS thing, needs lots of cleaning up if
-anyone is interested in porting the CSS to modules, but meh, not important. A smaller / cleaner
-example would be nice, possibly something utilizing the router and effects to get some middleware
-involved.
+```
+$ npm run start
+```
 
 # License
 
