@@ -15,6 +15,12 @@ A boilerplate of things that shouldn't exist.
 - [ ] Redux router
 - [ ] Redux effects
 
+## Setup
+
+```
+$ npm install
+```
+
 ## Running
 
 ```
