@@ -2,6 +2,7 @@
 import React, { Component, PropTypes } from 'react'
 import TodoTextInput from '../TodoTextInput'
 import classnames from 'classnames'
+import style from './style.css'
 
 class TodoItem extends Component {
   constructor(props, context) {
@@ -36,8 +37,8 @@ class TodoItem extends Component {
       )
     } else {
       element = (
-        <div className="view">
-          <input className="toggle"
+        <div className={style.view}>
+          <input className={style.toggle}
              type="checkbox"
              checked={todo.completed}
              onChange={() => completeTodo(todo.id)} />
@@ -46,16 +47,20 @@ class TodoItem extends Component {
             {todo.text}
           </label>
 
-          <button className="destroy" onClick={() => deleteTodo(todo.id)} />
+          <button className={style.destroy} onClick={() => deleteTodo(todo.id)} />
         </div>
       )
     }
 
+    // TODO: compose
+    const classes = classnames({
+      [style.completed]: todo.completed,
+      [style.editing]: this.state.editing,
+      [style.normal]: !this.state.editing
+    })
+
     return (
-      <li className={classnames({
-        completed: todo.completed,
-        editing: this.state.editing
-      })}>
+      <li className={classes}>
         {element}
       </li>
     )

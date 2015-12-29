@@ -1,7 +1,6 @@
 
 import React, { PropTypes, Component } from 'react'
 import TodoTextInput from '../TodoTextInput'
-import style from './style.css'
 
 class Header extends Component {
   handleSave(text) {
@@ -12,7 +11,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header className={style.Header}>
+      <header>
         <h1>Todos</h1>
         <TodoTextInput
           newTodo

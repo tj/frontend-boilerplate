@@ -15,7 +15,7 @@ class Footer extends Component {
     const itemWord = activeCount === 1 ? 'item' : 'items'
 
     return (
-      <span className="todo-count">
+      <span className={style.count}>
         <strong>{activeCount || 'No'}</strong> {itemWord} left
       </span>
     )
@@ -38,7 +38,7 @@ class Footer extends Component {
     const { completedCount, onClearCompleted } = this.props
     if (completedCount > 0) {
       return (
-        <button className="clear-completed" onClick={onClearCompleted} >
+        <button className={style.clearCompleted} onClick={onClearCompleted} >
           Clear completed
         </button>
       )
@@ -47,9 +47,9 @@ class Footer extends Component {
 
   render() {
     return (
-      <footer className={style.Footer}>
+      <footer className={style.normal}>
         {this.renderTodoCount()}
-        <ul className="filters">
+        <ul className={style.filters}>
           {[SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED].map(filter =>
             <li key={filter}>
               {this.renderFilterLink(filter)}
