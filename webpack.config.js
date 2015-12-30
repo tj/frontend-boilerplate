@@ -2,7 +2,7 @@
 var autoprefixer = require('autoprefixer')
 
 module.exports = {
-  context: __dirname + "/src",
+  context: __dirname + "/client",
   entry: {
     jsx: "./index.jsx",
     html: "./index.html",
