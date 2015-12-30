@@ -15,6 +15,7 @@ A boilerplate of things that mostly shouldn't exist.
 - [x] [CSS color function](https://github.com/postcss/postcss-color-function)
 - [x] [CSS easing functions](https://github.com/postcss/postcss-easings)
 - [x] [CSS size property](https://github.com/postcss/postcss-size)
+- [x] [CSS position shorthand](https://github.com/seaneking/postcss-position)
 - [x] Hot reloading
 - [ ] Redux router
 - [ ] Redux effects

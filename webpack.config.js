@@ -1,7 +1,8 @@
 
-var autoprefixer = require('autoprefixer')
 var colorFunction = require('postcss-color-function')
 var easingFunctions = require('postcss-easings')
+var autoprefixer = require('autoprefixer')
+var position = require('postcss-position')
 var size = require('postcss-size')
 
 module.exports = {
@@ -45,6 +46,7 @@ module.exports = {
     autoprefixer({ browsers: ['last 2 versions'] }),
     colorFunction(),
     easingFunctions(),
+    position(),
     size()
   ]
 }
