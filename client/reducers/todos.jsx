@@ -1,5 +1,5 @@
 
-import handleActions from '@f/handle-actions'
+import { handleActions } from 'redux-actions'
 
 const initialState = [{
   text: 'Use Redux',
@@ -8,35 +8,35 @@ const initialState = [{
 }]
 
 export default handleActions({
-  'add todo' (state, changes) {
+  'add todo' (state, action) {
     return [{
       id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
       completed: false,
-      text: changes.text
+      text: action.payload
     }, ...state]
   },
 
-  'delete todo' (state, changes) {
-    return state.filter(todo => todo.id !== changes.id )
+  'delete todo' (state, action) {
+    return state.filter(todo => todo.id !== action.payload )
   },
 
-  'edit todo' (state, changes) {
+  'edit todo' (state, action) {
     return state.map(todo => {
-      return todo.id === changes.id
-        ? { ...todo, text: changes.text }
+      return todo.id === action.payload.id
+        ? { ...todo, text: action.payload.text }
         : todo
     })
   },
 
-  'complete todo' (state, changes) {
+  'complete todo' (state, action) {
     return state.map(todo => {
-      return todo.id === changes.id
+      return todo.id === action.payload
         ? { ...todo, completed: !todo.completed }
         : todo
     })
   },
 
-  'complete all' (state) {
+  'complete all' (state, action) {
     const areAllMarked = state.every(todo => todo.completed)
     return state.map(todo => {
       return {
@@ -46,7 +46,7 @@ export default handleActions({
     })
   },
 
-  'clear complete' (state) {
+  'clear complete' (state, action) {
     return state.filter(todo => todo.completed === false)
   }
 }, initialState)
