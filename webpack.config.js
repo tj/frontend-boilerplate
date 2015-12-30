@@ -1,6 +1,7 @@
 
 var autoprefixer = require('autoprefixer')
 var colorFunction = require('postcss-color-function')
+var easingFunctions = require('postcss-easings')
 
 module.exports = {
   context: __dirname + "/client",
@@ -41,6 +42,7 @@ module.exports = {
   },
   postcss: [
     autoprefixer({ browsers: ['last 2 versions'] }),
-    colorFunction()
+    colorFunction(),
+    easingFunctions()
   ]
 }
