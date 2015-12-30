@@ -14,6 +14,7 @@ A boilerplate of things that mostly shouldn't exist.
 - [x] [CSS modules](https://github.com/outpunk/postcss-modules)
 - [x] [CSS color function](https://github.com/postcss/postcss-color-function)
 - [x] [CSS easing functions](https://github.com/postcss/postcss-easings)
+- [x] [CSS size property](https://github.com/postcss/postcss-size)
 - [x] Hot reloading
 - [ ] Redux router
 - [ ] Redux effects
