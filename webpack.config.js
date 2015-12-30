@@ -1,9 +1,5 @@
 
-var colorFunction = require('postcss-color-function')
-var easingFunctions = require('postcss-easings')
-var autoprefixer = require('autoprefixer')
-var position = require('postcss-position')
-var size = require('postcss-size')
+var rucksack = require('rucksack-css')
 
 module.exports = {
   context: __dirname + "/client",
@@ -43,10 +39,8 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   postcss: [
-    autoprefixer({ browsers: ['last 2 versions'] }),
-    colorFunction(),
-    easingFunctions(),
-    position(),
-    size()
+    rucksack({
+      autoprefixer: true
+    })
   ]
 }
