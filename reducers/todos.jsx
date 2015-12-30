@@ -1,4 +1,5 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/actions'
+
+import { handleActions } from 'redux-actions'
 
 const initialState = [{
   text: 'Use Redux',
@@ -6,43 +7,46 @@ const initialState = [{
   id: 0
 }]
 
-export default function todos(state = initialState, action) {
-  switch (action.type) {
-    case ADD_TODO:
-      return [{
-        id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
-        completed: false,
-        text: action.text
-      }, ...state]
+export default handleActions({
+  ADD_TODO(state, action) {
+    return [{
+      id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
+      completed: false,
+      text: action.payload
+    }, ...state]
+  },
 
-    case DELETE_TODO:
-      return state.filter(todo => todo.id !== action.id )
+  DELETE_TODO(state, action) {
+    return state.filter(todo => todo.id !== action.payload )
+  },
 
-    case EDIT_TODO:
-      return state.map(todo =>
-        todo.id === action.id
-          ? Object.assign({}, todo, { text: action.text })
-          : todo
-      )
+  EDIT_TODO(state, action) {
+    return state.map(todo => {
+      return todo.id === action.payload.id
+        ? { ...todo, text: action.payload.text }
+        : todo
+    })
+  },
 
-    case COMPLETE_TODO:
-      return state.map(todo =>
-        todo.id === action.id
-          ? Object.assign({}, todo, { completed: !todo.completed })
-          : todo
-      )
+  COMPLETE_TODO(state, action) {
+    return state.map(todo => {
+      return todo.id === action.payload
+        ? { ...todo, completed: !todo.completed }
+        : todo
+    })
+  },
 
-    case COMPLETE_ALL:
-      const areAllMarked = state.every(todo => todo.completed)
-
-      return state.map(todo => Object.assign({}, todo, {
+  COMPLETE_ALL(state, action) {
+    const areAllMarked = state.every(todo => todo.completed)
+    return state.map(todo => {
+      return {
+        ...todo,
         completed: !areAllMarked
-      }))
+      }
+    })
+  },
 
-    case CLEAR_COMPLETED:
-      return state.filter(todo => todo.completed === false)
-
-    default:
-      return state
+  CLEAR_COMPLETE(state, action) {
+    return state.filter(todo => todo.completed === false)
   }
-}
+}, initialState)

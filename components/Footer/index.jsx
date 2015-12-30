@@ -1,6 +1,7 @@
+
 import React, { PropTypes, Component } from 'react'
-import classnames from 'classnames'
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../../constants/filters'
+import classnames from 'classnames'
 import style from './style.css'
 
 const FILTER_TITLES = {
