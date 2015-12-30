@@ -12,7 +12,7 @@ A boilerplate of things that mostly shouldn't exist.
 - [x] [Autoprefixer](https://github.com/postcss/autoprefixer)
 - [x] [PostCSS](https://github.com/postcss/postcss)
 - [x] [CSS modules](https://github.com/outpunk/postcss-modules)
-- [x] [Rucksack](https://github.com/simplaio/rucksack)
+- [x] [Rucksack](http://simplaio.github.io/rucksack/docs)
 - [x] Hot reloading
 - [ ] Redux router
 - [ ] Redux effects
