@@ -18,7 +18,7 @@ class TodoItem extends Component {
 
   handleSave(id, text) {
     if (text.length === 0) {
-      this.props.deleteTodo(id)
+      this.props.deleteTodo({ id })
     } else {
       this.props.editTodo({ id, text })
     }
@@ -41,7 +41,7 @@ class TodoItem extends Component {
           <input className={style.toggle}
              type="checkbox"
              checked={todo.completed}
-             onChange={() => completeTodo(todo.id)} />
+             onChange={() => completeTodo({ id: todo.id })} />
 
           <label onDoubleClick={::this.handleDoubleClick}>
             {todo.text}

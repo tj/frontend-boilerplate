@@ -5,7 +5,7 @@ import TodoTextInput from '../TodoTextInput'
 class Header extends Component {
   handleSave(text) {
     if (text.length) {
-      this.props.addTodo(text)
+      this.props.addTodo({ text })
     }
   }
 
