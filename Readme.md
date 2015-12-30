@@ -25,7 +25,7 @@ $ npm install
 ## Running
 
 ```
-$ npm run start
+$ npm start
 ```
 
 # License
