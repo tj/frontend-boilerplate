@@ -5,7 +5,6 @@ module.exports = {
   context: __dirname + "/src",
   entry: {
     jsx: "./index.jsx",
-    css: "./main.css",
     html: "./index.html",
   },
   output: {
