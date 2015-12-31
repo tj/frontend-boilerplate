@@ -1,15 +1,16 @@
 var rucksack = require('rucksack-css')
 var webpack = require('webpack')
+var path = path = require('path')
 
 module.exports = {
-  context: __dirname + '/client',
+  context: path.resolve(__dirname, './client'),
   entry: {
     jsx: './index.jsx',
     html: './index.html',
     vendor: ['react']
   },
   output: {
-    path: __dirname + '/static',
+    path: path.resolve(__dirname, './static'),
     filename: 'bundle.js',
   },
   module: {
@@ -49,5 +50,9 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
     })
-  ]
+  ],
+  devServer: {
+    contentBase: "./client",
+    hot: true
+  }
 }
