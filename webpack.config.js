@@ -3,14 +3,14 @@ var webpack = require('webpack')
 var path = path = require('path')
 
 module.exports = {
-  context: path.resolve(__dirname, './client'),
+  context: path.join(__dirname, './client'),
   entry: {
     jsx: './index.jsx',
     html: './index.html',
     vendor: ['react']
   },
   output: {
-    path: path.resolve(__dirname, './static'),
+    path: path.join(__dirname, './static'),
     filename: 'bundle.js',
   },
   module: {
