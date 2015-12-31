@@ -1,4 +1,4 @@
-
+var webpack = require('webpack');
 var rucksack = require('rucksack-css')
 
 module.exports = {
@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     jsx: "./index.jsx",
     html: "./index.html",
+    vendor: ['react']
   },
   output: {
     path: __dirname + "/static",
@@ -35,6 +36,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
