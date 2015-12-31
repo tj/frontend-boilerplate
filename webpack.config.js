@@ -4,7 +4,10 @@ var webpack = require('webpack')
 module.exports = {
   context: __dirname + '/client',
   entry: {
-    jsx: './index.jsx',
+    jsx: [
+      'webpack-hot-middleware/client?reload=true',
+      './index.jsx'
+    ],
     html: './index.html',
     vendor: ['react']
   },
@@ -29,10 +32,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loaders: [
-          'react-hot',
-          'babel-loader'
-        ]
+        loaders: ['babel-loader']
       },
     ],
   },
@@ -45,6 +45,8 @@ module.exports = {
     })
   ],
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
