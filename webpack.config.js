@@ -1,14 +1,14 @@
-
-var rucksack = require('rucksack-css')
+var rucksack = require('rucksack-css'),
+  path = require('path')
 
 module.exports = {
-  context: __dirname + "/client",
+  context: path.join(__dirname, "/client"),
   entry: {
     jsx: "./index.jsx",
     html: "./index.html",
   },
   output: {
-    path: __dirname + "/static",
+    path: path.join(__dirname, "/static"),
     filename: "bundle.js",
   },
   module: {
