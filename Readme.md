@@ -13,8 +13,7 @@ A boilerplate of things that mostly shouldn't exist.
 - [x] [PostCSS](https://github.com/postcss/postcss)
 - [x] [CSS modules](https://github.com/outpunk/postcss-modules)
 - [x] [Rucksack](http://simplaio.github.io/rucksack/docs)
-- [x] Hot reloading
-- [ ] Redux router
+- [x] [Redux router](https://github.com/rackt/redux-simple-router)
 - [ ] Redux effects
 - [x] TodoMVC example
 
@@ -29,6 +28,10 @@ $ npm install
 ```
 $ npm start
 ```
+
+## Note
+
+This is just my personal boilerplate, it may or may not be a good fit for your project(s).
 
 # License
 
