@@ -1,6 +1,6 @@
 var rucksack = require('rucksack-css')
 var webpack = require('webpack')
-var path = path = require('path')
+var path = require('path')
 
 module.exports = {
   context: path.join(__dirname, './client'),
