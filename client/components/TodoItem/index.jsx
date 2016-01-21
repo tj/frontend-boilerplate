@@ -1,6 +1,6 @@
 
 import React, { Component, PropTypes } from 'react'
-import TodoTextInput from '../TodoTextInput'
+import TodoTextInput from 'components/TodoTextInput'
 import classnames from 'classnames'
 import style from './style.css'
 

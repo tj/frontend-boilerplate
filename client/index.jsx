@@ -6,8 +6,8 @@ import { syncReduxAndRouter } from 'redux-simple-router'
 import ReactDOM from 'react-dom'
 import React from 'react'
 
-import App from './containers/App'
-import configure from './store'
+import App from 'containers/App'
+import configure from 'store'
 
 const store = configure()
 const history = createHistory()

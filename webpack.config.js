@@ -38,7 +38,16 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      'actions': path.join(__dirname, 'client/actions'),
+      'components': path.join(__dirname, 'client/components'),
+      'constants': path.join(__dirname, 'client/constants'),
+      'containers': path.join(__dirname, 'client/containers'),
+      'middleware': path.join(__dirname, 'client/middleware'),
+      'reducers': path.join(__dirname, 'client/reducers'),
+      'store': path.join(__dirname, 'client/store')
+    }
   },
   postcss: [
     rucksack({
