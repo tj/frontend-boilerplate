@@ -26,8 +26,9 @@ class TodoTextInput extends Component {
   }
 
   handleBlur(e) {
+    const text = e.target.value.trim()
     if (!this.props.newTodo) {
-      this.props.onSave(e.target.value)
+      this.props.onSave(text)
     }
   }
 
