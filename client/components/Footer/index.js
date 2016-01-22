@@ -1,5 +1,5 @@
 
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../../constants/filters'
 import classnames from 'classnames'
 import style from './style.css'
@@ -61,14 +61,6 @@ class Footer extends Component {
       </footer>
     )
   }
-}
-
-Footer.propTypes = {
-  completedCount: PropTypes.number.isRequired,
-  activeCount: PropTypes.number.isRequired,
-  filter: PropTypes.string.isRequired,
-  onClearCompleted: PropTypes.func.isRequired,
-  onShow: PropTypes.func.isRequired
 }
 
 export default Footer

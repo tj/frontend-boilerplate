@@ -1,5 +1,9 @@
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import { syncHistory } from 'redux-simple-router'
+import { browserHistory } from 'react-router'
+
+import { logger } from '../middleware'
 import rootReducer from '../reducers'
 
 export default function configure(initialState) {
@@ -7,7 +11,12 @@ export default function configure(initialState) {
     ? window.devToolsExtension()(createStore)
     : createStore
 
-  const store = create(rootReducer, initialState)
+  const createStoreWithMiddleware = applyMiddleware(
+    logger,
+    syncHistory(browserHistory)
+  )(create)
+
+  const store = createStoreWithMiddleware(rootReducer, initialState)
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {

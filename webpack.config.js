@@ -5,7 +5,7 @@ var path = require('path')
 module.exports = {
   context: path.join(__dirname, './client'),
   entry: {
-    jsx: './index.jsx',
+    jsx: './index.js',
     html: './index.html',
     vendor: ['react']
   },

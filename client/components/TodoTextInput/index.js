@@ -1,5 +1,5 @@
 
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import classnames from 'classnames'
 import style from './style.css'
 
@@ -49,14 +49,6 @@ class TodoTextInput extends Component {
         onKeyDown={::this.handleSubmit} />
     )
   }
-}
-
-TodoTextInput.propTypes = {
-  onSave: PropTypes.func.isRequired,
-  text: PropTypes.string,
-  placeholder: PropTypes.string,
-  editing: PropTypes.bool,
-  newTodo: PropTypes.bool
 }
 
 export default TodoTextInput
