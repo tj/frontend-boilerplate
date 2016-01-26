@@ -1,4 +1,4 @@
-
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/action_names';
 import { handleActions } from 'redux-actions'
 
 const initialState = [{
@@ -8,7 +8,7 @@ const initialState = [{
 }]
 
 export default handleActions({
-  'add todo' (state, action) {
+  [ADD_TODO]: (state, action) => {
     return [{
       id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
       completed: false,
@@ -16,11 +16,11 @@ export default handleActions({
     }, ...state]
   },
 
-  'delete todo' (state, action) {
+  [DELETE_TODO]: (state, action) => {
     return state.filter(todo => todo.id !== action.payload )
   },
 
-  'edit todo' (state, action) {
+  [EDIT_TODO]: (state, action) => {
     return state.map(todo => {
       return todo.id === action.payload.id
         ? { ...todo, text: action.payload.text }
@@ -28,7 +28,7 @@ export default handleActions({
     })
   },
 
-  'complete todo' (state, action) {
+  [COMPLETE_TODO]: (state, action) => {
     return state.map(todo => {
       return todo.id === action.payload
         ? { ...todo, completed: !todo.completed }
@@ -36,7 +36,7 @@ export default handleActions({
     })
   },
 
-  'complete all' (state, action) {
+  [COMPLETE_ALL] (state, action) {
     const areAllMarked = state.every(todo => todo.completed)
     return state.map(todo => {
       return {
@@ -46,7 +46,7 @@ export default handleActions({
     })
   },
 
-  'clear complete' (state, action) {
+  [CLEAR_COMPLETED] (state, action) {
     return state.filter(todo => todo.completed === false)
   }
 }, initialState)
