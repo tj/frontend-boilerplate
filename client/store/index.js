@@ -1,6 +1,6 @@
 
 import { createStore, applyMiddleware } from 'redux'
-import { syncHistory } from 'redux-simple-router'
+import { syncHistory } from 'react-router-redux'
 import { browserHistory } from 'react-router'
 
 import { logger } from '../middleware'
