@@ -1,4 +1,3 @@
-
 import { Router, Route, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom'
