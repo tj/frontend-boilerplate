@@ -13,7 +13,7 @@ A boilerplate of things that mostly shouldn't exist.
 - [x] [PostCSS](https://github.com/postcss/postcss)
 - [x] [CSS modules](https://github.com/outpunk/postcss-modules)
 - [x] [Rucksack](http://simplaio.github.io/rucksack/docs)
-- [x] [Redux Simple Router](https://github.com/rackt/redux-simple-router)
+- [x] [React Router Redux](https://github.com/rackt/redux-router-redux)
 - [ ] Redux effects
 - [x] TodoMVC example
 
