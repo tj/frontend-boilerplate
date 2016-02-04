@@ -5,7 +5,7 @@ const config = {
   },
 
   production: {
-    base: '/test/static/'
+    base: '/'
   }
 }
 
