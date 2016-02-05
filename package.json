@@ -20,7 +20,6 @@
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.4",
     "postcss-loader": "^0.8.0",
-    "postcss-modules": "^0.3.0",
     "rucksack-css": "^0.8.5",
     "style-loader": "^0.12.4",
     "webpack": "^1.12.2",
