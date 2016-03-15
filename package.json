@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/index.js",
     "build": "NODE_ENV=production webpack --progress --colors",
-    "serve": "npm run build & NODE_ENV=production npm run start"
+    "start@prod": "npm run build & NODE_ENV=production npm run start"
   },
   "license": "MIT",
   "devDependencies": {
