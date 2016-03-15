@@ -16,6 +16,7 @@ A boilerplate of things that mostly shouldn't exist.
 - [x] [React Router Redux](https://github.com/reactjs/react-router-redux)
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [ ] Redux effects
+- [x] [Express](https://github.com/expressjs/express) API Server
 - [x] TodoMVC example
 
 ## Setup
@@ -35,6 +36,13 @@ $ npm start
 ```
 $ npm run build
 ```
+
+## Running in Production
+
+```
+$ npm run start@prod
+```
+It will automatically run `npm run build` and then run `npm start` with `NODE_ENV=production`.
 
 ## Note
 
