@@ -2,7 +2,7 @@ const express = require('express')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const webpackConfig = require('../webpack.config.js')
-const history = require('connect-history-api-fallback');
+const history = require('connect-history-api-fallback')
 const CLIENT_PORT = 3000
 const SERVER_PORT = 3001
 
@@ -34,10 +34,10 @@ else{
   app.use(express.static(__dirname + '/../static'))
 }
 
-app.get('/api/test', function (req, res) {
+app.get('/api/test', (req, res) => {
   res.send('The APIs works!')
-});
+})
 
-app.listen(SERVER_PORT, function () {
+app.listen(SERVER_PORT, () => {
   console.log(`API Server listening on port ${SERVER_PORT}!`)
-});
+})
