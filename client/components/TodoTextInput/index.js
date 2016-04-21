@@ -14,21 +14,14 @@ class TodoTextInput extends Component {
   handleSubmit(e) {
     const text = e.target.value.trim()
     if (e.which === 13) {
-      this.props.onSave(text)
-      if (this.props.newTodo) {
-        this.setState({ text: '' })
-      }
+      this.props.onSave(e)
     }
-  }
-
-  handleChange(e) {
-    this.setState({ text: e.target.value })
   }
 
   handleBlur(e) {
     const text = e.target.value.trim()
     if (!this.props.newTodo) {
-      this.props.onSave(text)
+      this.props.onSave(e)
     }
   }
 
@@ -42,10 +35,10 @@ class TodoTextInput extends Component {
       <input className={classes}
         type="text"
         autoFocus="true"
+        name="name"
         placeholder={this.props.placeholder}
-        value={this.state.text}
+        defaultValue={this.props.value}
         onBlur={::this.handleBlur}
-        onChange={::this.handleChange}
         onKeyDown={::this.handleSubmit} />
     )
   }
