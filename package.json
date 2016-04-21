@@ -2,13 +2,18 @@
   "name": "frontend-boilerplate",
   "version": "1.0.0",
   "private": true,
-  "description": "A boilerplate of things that shouldn't exist",
+  "description": "An actionless redux example using the two-way-rest plugin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 3000",
     "build": "NODE_ENV=production webpack --progress --colors"
   },
+  "keywords": [
+    "two-way-rest",
+    "actionless",
+    "redux"
+  ],
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.5.2",
