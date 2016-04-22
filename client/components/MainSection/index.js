@@ -8,7 +8,7 @@ import style from './style.css'
 const TODO_FILTERS = {
   [SHOW_ALL]: () => true,
   [SHOW_ACTIVE]: todo => !todo.completed,
-  [SHOW_COMPLETED]: todo => todo.completed
+  [SHOW_COMPLETED]: todo => todo.completed,
 }
 
 class MainSection extends Component {
@@ -31,11 +31,14 @@ class MainSection extends Component {
   renderToggleAll(completedCount) {
     const { todos, actions } = this.props
     if (todos.length > 0) {
-      return <input
-        className={style.toggleAll}
-        type="checkbox"
-        checked={completedCount === todos.length}
-        onChange={actions.completeAll} />
+      return (
+        <input
+            checked={completedCount === todos.length}
+            className={style.toggleAll}
+            onChange={actions.completeAll}
+            type="checkbox"
+        />
+      )
     }
   }
 
@@ -46,11 +49,13 @@ class MainSection extends Component {
 
     if (todos.length) {
       return (
-        <Footer completedCount={completedCount}
-          activeCount={activeCount}
-          filter={filter}
-          onClearCompleted={::this.handleClearCompleted}
-          onShow={::this.handleShow} />
+        <Footer
+            activeCount={activeCount}
+            completedCount={completedCount}
+            filter={filter}
+            onClearCompleted={::this.handleClearCompleted}
+            onShow={::this.handleShow}
+        />
       )
     }
   }
@@ -69,7 +74,10 @@ class MainSection extends Component {
         {this.renderToggleAll(completedCount)}
         <ul className={style.normal}>
           {filteredTodos.map(todo =>
-            <TodoItem key={todo.id} todo={todo} {...actions} />
+            <TodoItem key={todo.id}
+                todo={todo}
+                {...actions}
+            />
           )}
         </ul>
         {this.renderFooter(completedCount)}

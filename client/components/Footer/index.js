@@ -7,7 +7,7 @@ import style from './style.css'
 const FILTER_TITLES = {
   [SHOW_ALL]: 'All',
   [SHOW_ACTIVE]: 'Active',
-  [SHOW_COMPLETED]: 'Completed'
+  [SHOW_COMPLETED]: 'Completed',
 }
 
 class Footer extends Component {
@@ -28,9 +28,10 @@ class Footer extends Component {
 
     return (
       <a className={classnames({ [style.selected]: filter === selectedFilter })}
-         style={{ cursor: 'pointer' }}
-         onClick={() => onShow(filter)}>
-        {title}
+          onClick={() => onShow(filter)}
+          style={{ cursor: 'pointer' }}
+      >
+          {title}
       </a>
     )
   }
@@ -39,7 +40,9 @@ class Footer extends Component {
     const { completedCount, onClearCompleted } = this.props
     if (completedCount > 0) {
       return (
-        <button className={style.clearCompleted} onClick={onClearCompleted} >
+        <button className={style.clearCompleted}
+            onClick={onClearCompleted}
+        >
           Clear completed
         </button>
       )

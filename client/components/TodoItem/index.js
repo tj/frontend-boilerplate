@@ -8,7 +8,7 @@ class TodoItem extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
-      editing: false
+      editing: false,
     }
   }
 
@@ -31,23 +31,29 @@ class TodoItem extends Component {
     let element
     if (this.state.editing) {
       element = (
-        <TodoTextInput text={todo.text}
-           editing={this.state.editing}
-           onSave={(text) => this.handleSave(todo.id, text)} />
+        <TodoTextInput
+            editing={this.state.editing}
+            onSave={(text) => this.handleSave(todo.id, text)}
+            text={todo.text}
+        />
       )
     } else {
       element = (
         <div className={style.view}>
-          <input className={style.toggle}
-             type="checkbox"
-             checked={todo.completed}
-             onChange={() => completeTodo(todo.id)} />
+          <input
+              checked={todo.completed}
+              className={style.toggle}
+              onChange={() => completeTodo(todo.id)}
+              type="checkbox"
+          />
 
           <label onDoubleClick={::this.handleDoubleClick}>
             {todo.text}
           </label>
 
-          <button className={style.destroy} onClick={() => deleteTodo(todo.id)} />
+          <button className={style.destroy}
+              onClick={() => deleteTodo(todo.id)}
+          />
         </div>
       )
     }
@@ -56,7 +62,7 @@ class TodoItem extends Component {
     const classes = classnames({
       [style.completed]: todo.completed,
       [style.editing]: this.state.editing,
-      [style.normal]: !this.state.editing
+      [style.normal]: !this.state.editing,
     })
 
     return (

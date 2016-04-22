@@ -14,8 +14,10 @@ const history = syncHistoryWithStore(browserHistory, store)
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={App}>
-      </Route>
+      <Route
+          component={App}
+          path="/"
+      />
     </Router>
   </Provider>,
   document.getElementById('root')

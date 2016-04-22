@@ -13,7 +13,10 @@ class App extends Component {
     return (
       <div className={style.normal}>
         <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
+        <MainSection
+            actions={actions}
+            todos={todos}
+        />
         {children}
       </div>
     )
@@ -22,13 +25,13 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    todos: state.todos
+    todos: state.todos,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(TodoActions, dispatch)
+    actions: bindActionCreators(TodoActions, dispatch),
   }
 }
 
