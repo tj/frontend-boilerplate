@@ -7,7 +7,7 @@ class TodoTextInput extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
-      text: this.props.text || ''
+      text: this.props.text || '',
     }
   }
 
@@ -35,18 +35,20 @@ class TodoTextInput extends Component {
   render() {
     const classes = classnames({
       [style.edit]: this.props.editing,
-      [style.new]: this.props.newTodo
+      [style.new]: this.props.newTodo,
     }, style.normal)
 
     return (
-      <input className={classes}
-        type="text"
-        autoFocus="true"
-        placeholder={this.props.placeholder}
-        value={this.state.text}
-        onBlur={::this.handleBlur}
-        onChange={::this.handleChange}
-        onKeyDown={::this.handleSubmit} />
+      <input
+          autoFocus="true"
+          className={classes}
+          onBlur={::this.handleBlur}
+          onChange={::this.handleChange}
+          onKeyDown={::this.handleSubmit}
+          placeholder={this.props.placeholder}
+          type="text"
+          value={this.state.text}
+      />
     )
   }
 }
