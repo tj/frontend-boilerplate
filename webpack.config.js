@@ -51,6 +51,10 @@ module.exports = {
     ],
   },
   resolve: {
+    modulesDirectories: [
+      'client',
+      'node_modules',
+    ],
     extensions: ['', '.js', '.jsx']
   },
   postcss: [

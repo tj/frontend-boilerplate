@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import TodoTextInput from '../TodoTextInput'
+import TodoTextInput from 'components/TodoTextInput'
 
 class Header extends Component {
   handleSave(text) {
