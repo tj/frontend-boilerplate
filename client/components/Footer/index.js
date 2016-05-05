@@ -11,7 +11,7 @@ const FILTER_TITLES = {
 }
 
 class Footer extends Component {
-  renderTodoCount() {
+  renderTodoCount = () => {
     const { activeCount } = this.props
     const itemWord = activeCount === 1 ? 'item' : 'items'
 
@@ -20,9 +20,9 @@ class Footer extends Component {
         <strong>{activeCount || 'No'}</strong> {itemWord} left
       </span>
     )
-  }
+  };
 
-  renderFilterLink(filter) {
+  renderFilterLink = (filter) => {
     const title = FILTER_TITLES[filter]
     const { filter: selectedFilter, onShow } = this.props
 
@@ -33,9 +33,9 @@ class Footer extends Component {
         {title}
       </a>
     )
-  }
+  };
 
-  renderClearButton() {
+  renderClearButton = () => {
     const { completedCount, onClearCompleted } = this.props
     if (completedCount > 0) {
       return (
@@ -44,7 +44,7 @@ class Footer extends Component {
         </button>
       )
     }
-  }
+  };
 
   render() {
     return (
