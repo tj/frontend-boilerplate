@@ -1,23 +1,21 @@
 
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 
 import { logger } from '../middleware'
 import rootReducer from '../reducers'
 
+const enhancer = compose(
+  applyMiddleware(logger),
+  window.devToolsExtension && window.devToolsExtension()
+)
+
 export default function configure(initialState) {
-  const create = window.devToolsExtension
-    ? window.devToolsExtension()(createStore)
-    : createStore
 
-  const createStoreWithMiddleware = applyMiddleware(
-    logger
-  )(create)
-
-  const store = createStoreWithMiddleware(rootReducer, initialState)
+  const store = createStore(rootReducer, initialState, enhancer);
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
-      const nextReducer = require('../reducers')
+      const nextReducer = require('../reducers').default
       store.replaceReducer(nextReducer)
     })
   }
