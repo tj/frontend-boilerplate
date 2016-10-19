@@ -1,7 +1,7 @@
 
 import { createStore, applyMiddleware } from 'redux'
 
-import { logger } from '../middleware'
+import middleware from '../middleware'
 import rootReducer from '../reducers'
 
 export default function configure(initialState) {
@@ -9,13 +9,11 @@ export default function configure(initialState) {
     ? window.devToolsExtension()(createStore)
     : createStore
 
-  const createStoreWithMiddleware = applyMiddleware(
-    logger
-  )(create)
+  const createStoreWithMiddleware = applyMiddleware(...middleware)(create)
 
   const store = createStoreWithMiddleware(rootReducer, initialState)
 
-  if (module.hot) {
+  if (process.env.NODE_ENV === 'development' && module.hot) {
     module.hot.accept('../reducers', () => {
       const nextReducer = require('../reducers')
       store.replaceReducer(nextReducer)
