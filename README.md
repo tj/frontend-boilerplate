@@ -1,5 +1,4 @@
-
-# Frontend Boilerplate
+[![Frontend Boilerplate](http://i.imgur.com/PP1rQKd.jpg)](#)
 
 A boilerplate of things that mostly shouldn't exist.
 
@@ -15,8 +14,7 @@ A boilerplate of things that mostly shouldn't exist.
 - [x] [Rucksack](http://simplaio.github.io/rucksack/docs)
 - [x] [React Router Redux](https://github.com/reactjs/react-router-redux)
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
-- [ ] Redux effects
-- [x] TodoMVC example
+- [x] Redux CLI
 
 ## Setup
 
