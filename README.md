@@ -1,4 +1,4 @@
-[![Frontend Boilerplate](http://i.imgur.com/PP1rQKd.jpg)](#)
+[![kickup-react](https://s3.eu-central-1.amazonaws.com/github-banner/kickup-react.png)](#)
 
 A boilerplate of things that mostly shouldn't exist.
 
