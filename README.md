@@ -1,4 +1,4 @@
-[![kickup-react](https://s3.eu-central-1.amazonaws.com/github-banner/kickup-react.png)](#)
+[![kickup-react](https://s3.eu-central-1.amazonaws.com/github-banner/kickup-react.jpg)](#)
 
 A boilerplate of things that mostly shouldn't exist.
 
