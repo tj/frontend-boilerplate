@@ -9,7 +9,7 @@ import App from './containers/App'
 import configure from './store'
 
 const store = configure()
-const history = syncHistoryWithStore(browserHistory, store)
+const history = syncHistoryWithStore( browserHistory, store )
 
 ReactDOM.render(
   <Provider store={store}>
