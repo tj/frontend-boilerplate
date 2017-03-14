@@ -29,7 +29,7 @@
     "classnames": "^2.2.3",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
-    "react-hot-loader": "^1.3.0",
+    "react-hot-loader": "^3.0.0-beta.6",
     "react-redux": "^4.4.0",
     "react-router": "^2.0.0",
     "react-router-redux": "^4.0.0",
