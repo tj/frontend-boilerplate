@@ -35,5 +35,13 @@
     "react-router-redux": "^4.0.0",
     "redux": "^3.3.1",
     "redux-actions": "^0.9.1"
+  },
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "keymirror": "^0.1.1",
+    "object-assign": "^4.1.0",
+    "redux-persist": "^3.2.2",
+    "redux-persist-transform-immutable": "^3.1.0",
+    "uuid": "^2.0.2"
   }
 }

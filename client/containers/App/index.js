@@ -1,19 +1,21 @@
-
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import Header from '../../components/Header'
-import MainSection from '../../components/MainSection'
-import * as TodoActions from '../../actions/todos'
-import style from './style.css'
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import Header from '../../components/Header';
+import MainSection from '../../components/MainSection';
+import * as TodoActions from '../../actions/todos';
+import style from './style.css';
 
 class App extends Component {
   render() {
-    const { todos, actions, children } = this.props
+    const { todos, actions, children, status } = this.props;
+    const { items } = todos.toJS();
+    console.log(status.toJS());
+
     return (
       <div className={style.normal}>
         <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
+        <MainSection todos={items} actions={actions} />
         {children}
       </div>
     )
@@ -22,7 +24,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    todos: state.todos
+    todos: state.todos,
+    status: state.status,
   }
 }
 
