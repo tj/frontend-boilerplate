@@ -1,4 +1,3 @@
 
-export Header from './Header/Header'
-export Footer from './Footer/Footer'
-export MainSection from './MainSection/MainSection'
+export Header from './Header';
+export MainSection from './MainSection';

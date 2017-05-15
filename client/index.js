@@ -1,15 +1,15 @@
 
-import { Router, Route, browserHistory } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
-import { Provider } from 'react-redux'
-import ReactDOM from 'react-dom'
-import React from 'react'
+import { Router, Route, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { Provider } from 'react-redux';
+import ReactDOM from 'react-dom';
+import React from 'react';
 
-import { Root, Home } from './containers'
-import configure from './store'
+import { Root, Home } from './containers';
+import configure from './modules/store';
 
-const store = configure()
-const history = syncHistoryWithStore(browserHistory, store)
+const store = configure();
+const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -19,5 +19,5 @@ ReactDOM.render(
       </Route>
     </Router>
   </Provider>,
-  document.getElementById('root')
-)
+  document.getElementById('root'),
+);

@@ -1,3 +1,3 @@
 
-export Root from './Root/Root'
-export Home from './Home/Home'
+export Root from './Root';
+export Home from './Home';
