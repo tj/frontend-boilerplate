@@ -1,16 +1,10 @@
 
-import React, { Component } from 'react';
-import styles from './style.css';
+import React from 'react';
 
-class MainSection extends Component {
-  render() {
-    return (
-      <section>
-        <div className={styles.logo} />
-        This is the main content
-      </section>
-    );
-  }
+export default function MainSection() {
+  return (
+    <section>
+      Place your other content here!
+    </section>
+  );
 }
-
-export default MainSection;

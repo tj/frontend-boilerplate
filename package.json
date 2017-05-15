@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=development webpack-dev-server -d --progress --config config/webpack.config.dev.js",
+    "start": "NODE_ENV=development webpack-dev-server -d --hot --inline --progress --config config/webpack.config.dev.js",
     "build": "NODE_ENV=production webpack --progress --colors --config/webpack.config.prod.js",
     "lint": "eslint ."
   },

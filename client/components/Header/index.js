@@ -1,10 +1,11 @@
 
 import React from 'react';
+import styles from './style.css';
 
 export default function Header() {
   return (
-    <header>
-      This is the header
+    <header className={styles.main}>
+      <div className={styles.logo} />
     </header>
   );
 }
