@@ -1,6 +1,6 @@
 {
   "name": "kickup-react",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "A boilerplate of things that shouldn't exist",
   "main": "index.js",
