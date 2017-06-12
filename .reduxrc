@@ -1,7 +1,7 @@
 {
   "sourceBase": "client",
   "testBase": "tests",
-  "smartPath": "containers",
+  "smartPath": "pages",
   "dumbPath": "components",
   "fileCasing": "default"
 }

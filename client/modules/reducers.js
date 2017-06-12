@@ -5,6 +5,6 @@ import { routerReducer } from 'react-router-redux';
 import { tasksReducer } from './tasks';
 
 export default combineReducers({
-  routing: routerReducer,
+  router: routerReducer,
   tasks: tasksReducer,
 });

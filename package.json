@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
+    "history": "^4.6.1",
     "immutable": "^3.8.1",
     "lodash": "^4.17.4",
     "normalizr": "^3.2.2",
@@ -48,8 +49,9 @@
     "react-dom": "^15.0.0",
     "react-helmet": "^5.0.3",
     "react-redux": "^5.0.1",
-    "react-router": "^3.0.0",
-    "react-router-redux": "^4.0.0",
+    "react-router": "next",
+    "react-router-dom": "next",
+    "react-router-redux": "next",
     "redux": "^3.3.1",
     "redux-thunk": "^2.1.0",
     "reselect": "^3.0.1"
