@@ -1,3 +1,4 @@
+// @flow
 
 import React from 'react';
 import Helmet from 'react-helmet';
@@ -6,11 +7,11 @@ import { Route } from 'react-router-dom';
 import Home from './HomePage';
 import About from './AboutPage';
 
-import { Header, Loader } from '../components';
+import { Header } from '../components';
 import { helmetDefaults } from '../config';
 import './index.css';
 
-export default function App(props) {
+export default function App() {
   return (
     <div>
       <Helmet {...helmetDefaults} />
@@ -18,8 +19,6 @@ export default function App(props) {
 
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
-
-      <Loader running={props.navigating} />
     </div>
   );
 }
