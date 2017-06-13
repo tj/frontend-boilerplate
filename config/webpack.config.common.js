@@ -4,6 +4,10 @@ import paths from './paths';
 
 const { NODE_ENV } = process.env;
 
+const babelLoaders = (NODE_ENV === 'development')
+  ? ['react-hot-loader', 'babel-loader']
+  : ['babel-loader'];
+
 module.exports = {
   context: paths.appBuild,
   entry: {
@@ -19,6 +23,9 @@ module.exports = {
       'react-router-redux',
       'redux',
       'history',
+      'immutable',
+      'classnames',
+      'normalizr',
     ],
   },
   output: {
@@ -30,12 +37,12 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules|blueprints|__tests__/,
-        use: ['react-hot-loader', 'babel-loader'],
+        exclude: /node_modules|blueprints/,
+        use: babelLoaders,
       },
       {
         test: /\.css$/,
-        exclude: /node_modules|blueprints|__tests__/,
+        exclude: /node_modules|blueprints/,
         use: [
           'style-loader',
           'css-loader?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]',

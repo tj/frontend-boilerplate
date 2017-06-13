@@ -1,0 +1,18 @@
+
+.main {
+  background-color: #808080;
+  color: white;
+  text-decoration: none;
+  border: 1px solid #707070;
+  font-size: 1rem;
+  padding: .75rem 1.5rem;
+  border-radius: 3px;
+  transition-duration: 250ms;
+  transition-property: background-color;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+}
+
+.main:hover {
+  background-color: #707070;
+}

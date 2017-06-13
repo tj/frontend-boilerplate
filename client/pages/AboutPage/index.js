@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 
+import { Button } from '../../components';
 import styles from './style.css';
 
 export default function About() {
@@ -11,7 +11,7 @@ export default function About() {
       <Helmet title="About" />
 
       <p>About</p>
-      <Link to="/">{'← Go Back'}</Link>
+      <Button to="/">{'Go back home'}</Button>
     </div>
   );
 }

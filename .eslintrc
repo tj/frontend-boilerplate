@@ -3,7 +3,9 @@
   "parser": "babel-eslint",
   "esnext": true,
   "env": {
-    "browser": true
+    "browser": true,
+    "mocha": true,
+    "jest": true
   },
   "rules": {
     "semi": 2,
