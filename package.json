@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
+    "express": "^4.15.3",
     "history": "^4.6.1",
     "immutable": "^3.8.1",
     "lodash": "^4.17.4",
@@ -49,8 +50,8 @@
     "react-dom": "^15.0.0",
     "react-helmet": "^5.0.3",
     "react-redux": "^5.0.1",
-    "react-router": "next",
-    "react-router-dom": "next",
+    "react-router": "4.1.1",
+    "react-router-dom": "4.1.1",
     "react-router-redux": "next",
     "redux": "^3.3.1",
     "redux-thunk": "^2.1.0",
