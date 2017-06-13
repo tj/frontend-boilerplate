@@ -5317,6 +5317,10 @@ react-dom@^15.0.0:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
+react-fastclick@^3.0.2-alpha.1:
+  version "3.0.2-alpha.1"
+  resolved "https://registry.yarnpkg.com/react-fastclick/-/react-fastclick-3.0.2-alpha.1.tgz#f1930b47750f4ce596474e988c86ad6496a6e72a"
+
 react-helmet@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-5.0.3.tgz#c6da63ee96e83aa7c8fe6d041f28dd288b1b006d"

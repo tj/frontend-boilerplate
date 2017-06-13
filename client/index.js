@@ -9,6 +9,7 @@ import configure from './modules/store';
 import history from './modules/history';
 
 const store = configure();
+fastclick();
 
 ReactDOM.render(
   <Provider store={store}>
