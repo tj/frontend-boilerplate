@@ -1,0 +1,10 @@
+[ignore]
+.*/test/.*
+.*/node_modules/eslint-plugin-jsx-a11y/src/.*
+
+[include]
+client/*
+
+[libs]
+
+[options]

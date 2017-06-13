@@ -1,6 +1,12 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
   "parser": "babel-eslint",
+  "plugins": [
+    "flowtype"
+  ],
   "esnext": true,
   "env": {
     "browser": true,
@@ -17,6 +23,7 @@
     "react/prefer-stateless-function": 0,
     "react/prop-types": 0,
     "react/no-danger": 0,
+    "react/forbid-prop-types": 1,
     "import/prefer-default-export": 0,
     "import/no-extraneous-dependencies": 0,
     "import/no-unresolved": 0,
