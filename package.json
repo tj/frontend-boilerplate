@@ -48,7 +48,7 @@
     "sinon": "^2.3.4",
     "style-loader": "0.18.2",
     "url-loader": "^0.5.7",
-    "webpack": "^2.5.1",
+    "webpack": "^3.0.0",
     "webpack-dev-server": "^2.4.5",
     "webpack-hot-middleware": "^2.7.1",
     "webpack-node-externals": "^1.6.0"
