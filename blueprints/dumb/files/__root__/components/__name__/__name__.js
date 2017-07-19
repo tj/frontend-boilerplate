@@ -1,11 +1,13 @@
 
-import React, { PropTypes } from 'react'
-import styles from './<%= pascalEntityName %>.css'
+import React, { PropTypes } from 'react';
+import styles from './<%= pascalEntityName %>.css';
 
-const <%= pascalEntityName %> = props => (
-  <div className={styles.main}><%= pascalEntityName %></div>
-)
+function <%= pascalEntityName %>(props) {
+  return (
+    <div className={styles.main}><%= pascalEntityName %></div>
+  );
+}
 
-<%= pascalEntityName %>.propTypes = {}
+<%= pascalEntityName %>.displayName = '<%= pascalEntityName %>';
 
-export default <%= pascalEntityName %>
+export default <%= pascalEntityName %>;
