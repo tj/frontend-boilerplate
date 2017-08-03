@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "flow": "flow",
     "start": "NODE_ENV=development webpack-dev-server -d --hot --inline --progress --config config/webpack.config.dev.babel.js",
-    "build": "NODE_ENV=production webpack --progress --colors --config/webpack.config.prod.babel.js"
+    "build": "NODE_ENV=production webpack --progress --colors --config config/webpack.config.prod.babel.js"
   },
   "license": "MIT",
   "devDependencies": {
