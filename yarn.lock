@@ -5440,12 +5440,6 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^0.2.2"
 
-react-spin@^0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/react-spin/-/react-spin-0.6.2.tgz#e7af9cad158b8c601d83aaad5db4abd1bf42b8c9"
-  dependencies:
-    spin.js "^2.0.1"
-
 react-test-renderer@^15.5.4:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.5.4.tgz#d4ebb23f613d685ea8f5390109c2d20fbf7c83bc"
@@ -6061,7 +6055,7 @@ spdy@^3.4.1:
     select-hose "^2.0.0"
     spdy-transport "^2.0.15"
 
-spin.js@^2.0.1:
+spin.js@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/spin.js/-/spin.js-2.3.2.tgz#6caa56d520673450fd5cfbc6971e6d0772c37a1a"
 

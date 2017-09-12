@@ -61,6 +61,13 @@ module.exports = {
     ],
   },
   resolve: {
+    alias: {
+      '@root': path.resolve(paths.appBuild),
+      '@assets': path.resolve(paths.appBuild, 'assets'),
+      '@pages': path.resolve(paths.appBuild, 'pages'),
+      '@components': path.resolve(paths.appBuild, 'components'),
+      '@modules': path.resolve(paths.appBuild, 'modules'),
+    },
     modules: [
       path.resolve('./'),
       'node_modules',

@@ -2,13 +2,14 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Spin from 'react-spin';
 import { Link } from 'react-router-dom';
 import has from 'lodash/has';
 import invariant from 'invariant';
 import classnames from 'classnames/bind';
 
-import { spinConfig as defaultSpinConfig } from '../../config.js';
+import { spinConfig as defaultSpinConfig } from '@root/config.js';
+import Spin from '@components/Spin';
+
 import styles from './style.css';
 
 const cx = classnames.bind(styles);
