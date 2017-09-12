@@ -9,7 +9,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
     new webpack.DefinePlugin(JSON.stringify({
-      'process.env.NODE_ENV': 'production',
+      'process.env': JSON.stringify({ NODE_ENV: 'production' }),
     })),
     new HtmlWebpackPlugin({
       inject: true,

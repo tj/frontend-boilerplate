@@ -4,16 +4,13 @@ import paths from './paths';
 
 const { NODE_ENV } = process.env;
 
-const babelLoaders = (NODE_ENV === 'development')
-  ? ['react-hot-loader', 'babel-loader']
-  : ['babel-loader'];
-
 module.exports = {
   context: paths.appBuild,
   entry: {
     jsx: [
+      NODE_ENV === 'development' && 'react-hot-loader/patch',
       './index.js',
-    ],
+    ].filter(entry => !!entry),
     vendor: [
       'react',
       'react-dom',
@@ -38,7 +35,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules|blueprints/,
-        use: babelLoaders,
+        use: ['babel-loader'],
       },
       {
         test: /\.css$/,
