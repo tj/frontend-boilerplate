@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
+import { StyleSheet, css } from 'aphrodite';
 
 import { Button } from '../../components';
-import styles from './style.css';
 
 export default class Home extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className={styles.main}>
+      <div className={css(styles.main)}>
         <Helmet title="Home" />
 
         <p>Home</p>
@@ -39,3 +39,9 @@ export default class Home extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  main: {
+    textAlign: 'center',
+  },
+});
