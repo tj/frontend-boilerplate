@@ -11,6 +11,18 @@
 We at [Kreativgebiet](https://kreativgebiet.com) aim to move fast and always on the bleeding-edge of technology. That's why we created our own boilerplate. Of course, we started with the boilerplate from [TJ](https://github.com/tj/frontend-boilerplate) and continued from where he left.
 Since we always want to used bleeding-edge, we needed to have the ability to quickly adapt the boilerplate to our latest needs. That's, why `kickup-react` is here.
 
+## What's in there?
+
+| Module Name | What is it for? |
+| --- | --- |
+| :atom: React | Well, I think you know what this is for |
+| :zap: Redux | State management in React. Done right. |
+| :nut_and_bolt: Webpack | Compilation of React and all other modules |
+| :syringe: Babel | Using ES6 things in ES5 browsers right now |
+| :paintbrush: PostCSS | Post-compilation of CSS |
+| :bug: eslint | Linting the Javascript-code |
+| :bomb: immutable.js | Make things immutable (and comparable) |
+
 ## How to set it up?
 
 If you also want to use the `kickup-react` boilerplate, you can simply `git clone` the repository or download the zip file into your project folder and unzip it. If you are aiming to use this boilerplate, I assume that you are already familiar how to clone it into your `development` folder.
