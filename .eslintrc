@@ -7,7 +7,6 @@
   "plugins": [
     "flowtype"
   ],
-  "esnext": true,
   "env": {
     "browser": true,
     "mocha": true,
