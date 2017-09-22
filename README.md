@@ -19,7 +19,7 @@ Since we always want to used bleeding-edge, we needed to have the ability to qui
 | :zap: Redux | State management in React. Done right. |
 | :nut_and_bolt: Webpack | Compilation of React and all other modules |
 | :syringe: Babel | Using ES6 things in ES5 browsers right now |
-| :paintbrush: PostCSS | Post-compilation of CSS |
+| :paintbrush: aphrodite | Excellent CSS-in-JS framework |
 | :bug: eslint | Linting the Javascript-code |
 | :bomb: immutable.js | Make things immutable (and comparable) |
 
@@ -43,17 +43,16 @@ npm start
 
 Production-use is as easy as development setup. Again, only one simple command is needed for webpack to compile the whole application. A deployment process isn't included _yet_, but is planned, since we are always searching for the latest awesome and easiest deployment strategy (Remember -> Bleeding-edge).
 
-```sh 
+```sh
 npm run build # or yarn build
 ```
 
 ## License
 
 > Copyright 2016-2017 Kreativgebiet GmbH
-> 
+>
 > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-> 
+>
 > The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-> 
+>
 > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
