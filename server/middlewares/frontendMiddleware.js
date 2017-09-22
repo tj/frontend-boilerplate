@@ -1,4 +1,5 @@
 /* eslint-disable global-require */
+const React = require('react');
 const express = require('express');
 const path = require('path');
 const compression = require('compression');
@@ -36,6 +37,9 @@ const addDevMiddlewares = (app, webpackConfig) => {
 
 // Production middlewares
 const addProdMiddlewares = (app, options) => {
+  const ReactDOMServer = require('react-dom/server');
+  const App = require('../../client');
+
   const publicPath = options.publicPath || '/';
   const outputPath = options.outputPath || path.resolve(process.cwd(), 'build');
 
@@ -45,7 +49,21 @@ const addProdMiddlewares = (app, options) => {
   app.use(compression());
   app.use(publicPath, express.static(outputPath));
 
-  app.get('*', (req, res) => res.sendFile(path.resolve(outputPath, 'index.html')));
+  function handleRender(req, res) {
+    const html = ReactDOMServer.renderToString(<App />);
+
+    res.readFile(path.resolve(outputPath, 'index.html'), 'utf8', function (err, data) {
+      if (err) throw err;
+
+      // Inserts the rendered React HTML into our main div
+      const document = data.replace(/<div id="root"><\/div>/, `<div id="root">${html}</div>`);
+
+      // Sends the response back to the client
+      res.send(document);
+    });
+  }
+
+  app.get('*', handleRender);
 };
 
 /**
