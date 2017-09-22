@@ -9,7 +9,7 @@ import About from './AboutPage';
 
 import { Header } from '../components';
 import { helmetDefaults } from '../config';
-import './index.css';
+import './globals.js';
 
 export default function App() {
   return (

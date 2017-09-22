@@ -1,9 +1,10 @@
 
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
+import { css } from 'aphrodite';
+import styles from './style.js';
 
 import { Button } from '../../components';
-import styles from './style.css';
 
 export default class Home extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className={styles.main}>
+      <div className={css(styles.main)}>
         <Helmet title="Home" />
 
         <p>Home</p>
