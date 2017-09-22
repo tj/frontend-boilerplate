@@ -1,10 +1,11 @@
 
 import React, { PropTypes } from 'react';
-import styles from './<%= pascalEntityName %>.css';
+import { css } from 'aphrodite';
+import styles from './style';
 
 function <%= pascalEntityName %>(props) {
   return (
-    <div className={styles.main}><%= pascalEntityName %></div>
+    <div className={css(styles.main)}><%= pascalEntityName %></div>
   );
 }
 

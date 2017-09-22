@@ -3,4 +3,3 @@ node_modules/
 server/
 client/assets/
 **/*.{jpg,svg,png}
-**/*.css

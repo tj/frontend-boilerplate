@@ -1,11 +1,12 @@
 
 import React, { Component, PropTypes } from 'react';
-import styles from './<%= pascalEntityName %>.css';
+import { css } from 'aphrodite';
+import styles from './<%= pascalEntityName %>';
 
 class <%= pascalEntityName %> extends Component {
   render() {
     return (
-      <div className={styles.main}><%= pascalEntityName %></div>
+      <div className={css(styles.main)}><%= pascalEntityName %></div>
     );
   }
 }
