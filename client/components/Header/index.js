@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { StyleSheet, css } from 'aphrodite';
+import { css } from 'aphrodite';
+import styles from './style.js';
 
 export default function Header() {
   return (
@@ -9,19 +10,3 @@ export default function Header() {
     </header>
   );
 }
-
-const styles = StyleSheet.create({
-  main: {
-    marginTop: 53,
-    marginBottom: 50,
-  },
-  logo: {
-    margin: '0 auto',
-    width: 51,
-    height: 45,
-    backgroundImage: 'url(../../assets/logo.png)',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    backgroundSize: '51px 45px',
-  },
-});

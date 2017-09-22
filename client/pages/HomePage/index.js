@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { StyleSheet, css } from 'aphrodite';
+import { css } from 'aphrodite';
+import styles from './style.js';
 
 import { Button } from '../../components';
 
@@ -39,9 +40,3 @@ export default class Home extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  main: {
-    textAlign: 'center',
-  },
-});
