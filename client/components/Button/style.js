@@ -15,7 +15,6 @@ export default StyleSheet.create({
     overflow: 'hidden',
     position: 'relative',
     display: 'inline-block',
-    transitionDuration: '250ms',
     boxShadow: '0 2px 4px rgba(0, 0, 0, .1)',
 
     '@media (max-width: 600px)': {

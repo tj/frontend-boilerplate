@@ -1,4 +1,4 @@
-import { StyleSheet, css } from 'aphrodite';
+import { StyleSheet } from 'aphrodite';
 
 const globalSelectorHandler = (selector, _, generateSubtreeStyles) => {
   if (selector[0] !== '*') {
@@ -6,16 +6,13 @@ const globalSelectorHandler = (selector, _, generateSubtreeStyles) => {
   }
   return generateSubtreeStyles(selector.slice(1));
 };
+
 const globalExtension = { selectorHandler: globalSelectorHandler };
 const extended = StyleSheet.extend([globalExtension]);
 
 const styles = extended.StyleSheet.create({
   globals: {
     '*html': {
-      margin: 0,
-      padding: 0,
-    },
-    '*body': {
       margin: 0,
       padding: 0,
     },

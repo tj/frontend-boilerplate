@@ -4,12 +4,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { css } from 'aphrodite';
-import styles from './style.js';
 import has from 'lodash/has';
 import invariant from 'invariant';
 
 import { spinConfig as defaultSpinConfig } from '@root/config.js';
 import Spin from '@components/Spin';
+import styles from './style.js';
 
 export default function Button({ loading, spinConfig, ...props }: Object) {
   let Tag = 'button';
@@ -29,7 +29,7 @@ export default function Button({ loading, spinConfig, ...props }: Object) {
   return (
     <Tag
       disabled={loading}
-      className={css(styles.main, loading && styles.main__loading )}
+      className={css(styles.main, loading && styles.main__loading)}
       {...props}
     >
       {/* Implement the spinner for loading activity */}
