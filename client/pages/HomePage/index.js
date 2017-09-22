@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
+import autobind from 'autobind-decorator';
 import { css } from 'aphrodite';
 import styles from './style.js';
 
@@ -11,10 +12,9 @@ export default class Home extends Component {
     super(props);
 
     this.state = { loading: false };
-
-    this.switchLoading = ::this.switchLoading;
   }
 
+  @autobind
   switchLoading() {
     this.setState({ loading: !this.state.loading });
   }

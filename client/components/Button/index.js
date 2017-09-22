@@ -11,8 +11,9 @@ import { spinConfig as defaultSpinConfig } from '@root/config.js';
 import Spin from '@components/Spin';
 import styles from './style.js';
 
-export default function Button({ loading, spinConfig, ...props }: Object) {
+export default function Button(allProps: Object) {
   let Tag = 'button';
+  const { loading, spinConfig, ...props } = allProps;
 
   if (has(props, 'to')) {
     Tag = Link;

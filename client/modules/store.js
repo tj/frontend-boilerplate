@@ -1,4 +1,4 @@
-
+/* eslint-disable no-underscore-dangle, global-require */
 import { createStore, applyMiddleware, compose } from 'redux';
 
 import middleware from './middleware';

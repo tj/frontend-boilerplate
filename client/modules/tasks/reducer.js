@@ -1,4 +1,4 @@
-
+/* eslint-disable no-case-declarations */
 import { Record, List } from 'immutable';
 
 import { CREATE_TASK, REMOVE_TASK } from './actionTypes';
