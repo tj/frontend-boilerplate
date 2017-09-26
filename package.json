@@ -47,7 +47,7 @@
     "mocha-webpack": "^0.7.0",
     "null-loader": "^0.1.1",
     "react-hot-loader": "next",
-    "react-test-renderer": "^15.5.4",
+    "react-test-renderer": "^16.0.0",
     "sinon": "^3.0.0",
     "style-loader": "0.18.2",
     "url-loader": "^0.5.7",
