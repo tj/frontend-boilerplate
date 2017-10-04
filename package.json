@@ -32,7 +32,7 @@
     "chai": "^4.0.2",
     "chalk": "^2.1.0",
     "css-loader": "^0.28.1",
-    "enzyme": "^2.8.2",
+    "enzyme": "^3.0.0",
     "eslint": "^4.1.0",
     "eslint-config-kreativgebiet": "^0.2.2",
     "eslint-plugin-flowtype": "^2.34.0",
