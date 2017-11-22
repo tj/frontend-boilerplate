@@ -68,7 +68,7 @@
     "normalizr": "^3.2.2",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
-    "react-dom": "^15.0.0",
+    "react-dom": "^16.0.0",
     "react-fastclick": "^3.0.2-alpha.1",
     "react-helmet": "^5.0.3",
     "react-redux": "^5.0.1",
