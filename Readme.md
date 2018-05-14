@@ -1,5 +1,5 @@
 
-__I don't use this anymore, it's unsupported, use https://github.com/mozilla-neutrino/neutrino-dev__.
+__I don't use this anymore, it's unsupported, I'd recommend https://parceljs.org/
 
 # Frontend Boilerplate
 
