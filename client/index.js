@@ -1,40 +1,33 @@
+// @flow
+import React from 'react'
+import { render } from 'react-dom'
+import ConnectedRouter from 'react-router-redux/es/ConnectedRouter'
+import { Provider } from 'react-redux'
 
-import React from 'react';
-import { render } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import initializeFastClick from 'react-fastclick';
+import { store } from 'modules/store'
+import history from 'modules/history'
 
-import App from './App';
+import './utils/globalStyles.js'
 
 console.info('Application running in', process.env.NODE_ENV, 'mode.'); // eslint-disable-line
 
 /*
- * Add `react-fastclick` so mobile devices don't have any problems with to slow
- * clicks on UI elements
- */
-initializeFastClick();
-
-/*
  * Render the React Pages into the actual DOM
  */
-render(
-  <AppContainer>
-    <App />
-  </AppContainer>,
-  document.getElementById('root'),
-);
 
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    // If you use Webpack 2 in ES modules mode, you can
-    // use <App /> here rather than require() a <NextApp />.
-    const NextApp = require('./App').default; // eslint-disable-line
+const Root: React$StatelessFunctionalComponent<any> = require('pages/Root').default
 
-    render(
-      <AppContainer>
-        <NextApp />
-      </AppContainer>,
-      document.getElementById('root'),
-    );
-  });
+const MOUNT_NODE: ?HTMLElement = document.getElementById('root')
+
+if (MOUNT_NODE) {
+  render(
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Root />
+      </ConnectedRouter>
+    </Provider>,
+    MOUNT_NODE
+  )
+} else {
+  throw new Error('Could not find MOUNT_NODE')
 }

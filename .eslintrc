@@ -1,8 +1,65 @@
 {
   "parser": "babel-eslint",
-  "extends": "kreativgebiet",
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["flowtype", "prettier"],
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": false,
+        "trailingComma": "es5",
+        "printWidth": 100,
+        "singleQuote": true
+      }
+    ],
+    "radix": ["error", "as-needed"],
+    "no-console": ["error", { "allow": ["error"] }],
+    "global-require": "off",
+    "react/jsx-indent": "off",
+    "react/default-props-match-prop-types": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js"]
+      }
+    ],
+    "react/prop-types": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "flowtype/boolean-style": [2, "boolean"],
+    "flowtype/define-flow-type": 1,
+    "flowtype/generic-spacing": [2, "never"],
+    "flowtype/no-primitive-constructor-types": 2,
+    "flowtype/no-types-missing-file-annotation": 2,
+    "flowtype/object-type-delimiter": [2, "comma"],
+    "flowtype/require-valid-file-annotation": 2,
+    "flowtype/space-after-type-colon": [2, "always"],
+    "flowtype/space-before-generic-bracket": [2, "never"],
+    "flowtype/space-before-type-colon": [2, "never"],
+    "flowtype/union-intersection-spacing": [2, "always"],
+    "flowtype/use-flow-type": 1,
+    "flowtype/valid-syntax": 1,
+    "flowtype/type-id-match": [2, "^([A-Z]+[a-z0-9A-Z]*)$"],
+    "flowtype/require-return-type": [
+      2,
+      "always",
+      {
+        "annotateUndefined": "never",
+        "excludeArrowFunctions": "expressionsOnly"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    },
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": false
+    }
   }
 }

@@ -1,16 +1,17 @@
-
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import baseConfig from './webpack.config.common.js';
+import webpack from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import baseConfig from './webpack.config.common.js'
 
 module.exports = {
   ...baseConfig,
   devtool: 'source-map',
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
-    new webpack.DefinePlugin(JSON.stringify({
-      'process.env': JSON.stringify({ NODE_ENV: 'production' }),
-    })),
+    new webpack.DefinePlugin(
+      JSON.stringify({
+        'process.env': JSON.stringify({ NODE_ENV: 'production' }),
+      })
+    ),
     new HtmlWebpackPlugin({
       inject: true,
       template: 'index.html',
@@ -29,4 +30,4 @@ module.exports = {
     }),
     new webpack.optimize.UglifyJsPlugin(),
   ],
-};
+}

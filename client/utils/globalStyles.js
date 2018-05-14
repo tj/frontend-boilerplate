@@ -1,14 +1,19 @@
-import { StyleSheet } from 'aphrodite';
+// @flow
+import { StyleSheet } from 'aphrodite/no-important'
 
-const globalSelectorHandler = (selector, _, generateSubtreeStyles) => {
+const globalSelectorHandler = (
+  selector: string[],
+  _: string,
+  generateSubtreeStyles: (string[]) => *
+): * => {
   if (selector[0] !== '*') {
-    return null;
+    return null
   }
-  return generateSubtreeStyles(selector.slice(1));
-};
+  return generateSubtreeStyles(selector.slice(1))
+}
 
-const globalExtension = { selectorHandler: globalSelectorHandler };
-const extended = StyleSheet.extend([globalExtension]);
+const globalExtension: Object = { selectorHandler: globalSelectorHandler }
+const extended = StyleSheet.extend([globalExtension])
 
 const styles = extended.StyleSheet.create({
   globals: {
@@ -31,7 +36,8 @@ const styles = extended.StyleSheet.create({
     },
     '*body': {
       fontSize: 24,
-      fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif',
+      fontFamily:
+        '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif',
       lineHeight: 1.4,
       background: '#fff',
       color: '#222',
@@ -45,7 +51,6 @@ const styles = extended.StyleSheet.create({
       borderTopWidth: 40,
     },
   },
-});
+})
 
-
-extended.css(styles.globals);
+extended.css(styles.globals)

@@ -1,9 +1,10 @@
+// @flow
+import thunk from 'redux-thunk'
+import routerMiddleware from 'react-router-redux/es/middleware'
+import type { Middleware } from 'redux'
 
-import thunk from 'redux-thunk';
-import { routerMiddleware } from 'react-router-redux';
+import history from './history'
 
-import history from './history';
+const router: Middleware<{}, mixed> = routerMiddleware(history)
 
-const router = routerMiddleware(history);
-
-export default [thunk, router];
+export default [thunk, router]

@@ -1,0 +1,63 @@
+aliases:
+  - &restore-node-cache
+    keys:
+      # bump version for cache invalidation
+      - v1-dependencies-{{ checksum "yarn.lock" }}
+
+  - &save-node-cache
+    key: v1-dependencies-{{ checksum "yarn.lock" }}
+    paths:
+      - node_modules/
+
+  - &install-node-dependencies
+    |
+      yarn install
+
+  - &restore-eslint-cache
+    keys:
+      - v2-eslint- # the cache has to be restored for every revision
+
+  - &save-eslint-cache
+    key: v2-eslint-{{ .Revision }}
+    paths:
+      - .eslintcache
+
+defaults: &defaults
+  working_directory: ~/kickup-react
+  docker:
+    - image: circleci/node:8
+
+jobs:
+  test-smoke:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - restore_cache: *restore-node-cache
+      - run: *install-node-dependencies
+      - save_cache: *save-node-cache
+      - run: yarn circular-dependencies
+      - restore-cache: *restore-eslint-cache
+      - run: yarn lint
+      - save_cache: *save-eslint-cache
+      - run: yarn jest-coverage -w 1 # running it single threaded
+
+  test-flow:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - restore_cache: *restore-node-cache
+      - run: *install-node-dependencies
+      - save_cache: *save-node-cache
+
+      - run: yarn flow
+      - run: yarn flow-coverage
+
+workflows:
+  version: 2
+
+  build:
+    jobs:
+      - test-smoke
+      - test-flow

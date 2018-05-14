@@ -4,3 +4,4 @@ static
 .module-cache
 *.log*
 .tmp
+coverage

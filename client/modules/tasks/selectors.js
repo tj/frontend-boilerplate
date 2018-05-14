@@ -1,9 +1,7 @@
-
-import { createSelector } from 'reselect';
+// @flow
+import type { State as RootState } from '../types'
 
 /*
  * Select the tasks state from the whole redux state-tree
  */
-export const getTasks = createSelector(
-  state => state.tasks,
-);
+export const getTasks = (state: RootState) => state.tasks

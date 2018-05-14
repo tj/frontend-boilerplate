@@ -5,10 +5,13 @@
   "description": "A boilerplate of things",
   "main": "index.js",
   "scripts": {
-    "test": "npm run flow && npm run lint && npm run mocha",
-    "mocha": "mocha-webpack --webpack-config config/webpack.config.test.babel.js \"test/**/*.test.js\"",
+    "test": "npm run flow && npm run lint && npm run jest",
+    "jest": "jest",
+    "jest-coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "lint": "eslint ./client",
     "flow": "flow",
+    "flow-coverage": "flow-coverage-report --strict-coverage",
+    "check-circular-dependencies": "madge --circular client/index.js",
     "start": "NODE_ENV=development webpack-dev-server -d --hot --inline --progress --config config/webpack.config.dev.babel.js",
     "build": "NODE_ENV=production webpack --progress --colors --config config/webpack.config.prod.babel.js"
   },
@@ -16,10 +19,13 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.5.2",
-    "babel-eslint": "^8.0.0",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.0",
     "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.8",
     "babel-plugin-transform-remove-console": "^6.8.5",
@@ -32,21 +38,29 @@
     "chai": "^4.0.2",
     "chalk": "^2.1.0",
     "css-loader": "^0.28.1",
-    "enzyme": "^3.0.0",
-    "eslint": "^4.1.0",
-    "eslint-config-kreativgebiet": "^0.2.2",
-    "eslint-plugin-flowtype": "^2.34.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-plugin-flowtype": "^2.46.3",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.4.0",
     "file-loader": "^0.11.1",
-    "flow-bin": "^0.51.1",
+    "flow-bin": "^0.69.0",
+    "flow-coverage-report": "^0.5.0",
     "html-webpack-plugin": "^2.30.1",
-    "img-loader": "^2.0.0",
+    "img-loader": "^3.0.0",
     "ip": "^1.1.5",
+    "jest": "^22.4.3",
     "jsdom": "^11.0.0",
+    "madge": "^3.0.1",
     "minimist": "^1.2.0",
-    "mocha": "^3.4.2",
-    "mocha-webpack": "^0.7.0",
     "null-loader": "^0.1.1",
-    "react-hot-loader": "next",
+    "prettier": "^1.12.1",
     "react-test-renderer": "^16.0.0",
     "sinon": "^3.0.0",
     "style-loader": "0.19.0",
@@ -57,12 +71,11 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
-    "aphrodite": "^1.2.4",
-    "autobind-decorator": "^2.1.0",
+    "aphrodite": "^2.2.0",
     "classnames": "^2.2.3",
+    "coveralls": "^3.0.1",
     "express": "^4.15.3",
     "history": "^4.6.1",
-    "immutable": "^3.8.1",
     "invariant": "^2.2.2",
     "lodash": "^4.17.4",
     "normalizr": "^3.2.2",
@@ -71,6 +84,7 @@
     "react-dom": "^16.0.0",
     "react-fastclick": "^3.0.2-alpha.1",
     "react-helmet": "^5.0.3",
+    "react-hot-loader": "^4.1.3",
     "react-redux": "^5.0.1",
     "react-router": "4.1.1",
     "react-router-dom": "4.1.1",
@@ -80,5 +94,51 @@
     "reselect": "^3.0.1",
     "spin.js": "^2.3.2",
     "webpack-dev-middleware": "^1.12.0"
+  },
+  "jest": {
+    "roots": [
+      "./client",
+      "./test"
+    ],
+    "globals": {
+      "GLOBAL": true
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "client/**/*.js",
+      "!client/**/style.js",
+      "!client/**/types.js",
+      "!client/**/style.js",
+      "!client/index.js",
+      "!client/modules/**/index.js",
+      "!client/components/index.js",
+      "!client/pages/index.js",
+      "!client/App.js",
+      "!client/utils/globalStyles.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    },
+    "coverageDirectory": "./coverage",
+    "setupFiles": [
+      "./setupTests.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-router|react-router-dom|react-router-redux)/)"
+    ]
+  },
+  "flow-coverage-report": {
+    "includeGlob": [
+      "client/**/*.js"
+    ],
+    "type": [
+      "text"
+    ],
+    "threshold": 96
   }
 }

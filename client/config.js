@@ -1,10 +1,13 @@
+// @flow
+import type { Props } from 'react-helmet'
+import type { SpinnerConfig } from 'spin.js'
 
-export const helmetDefaults = {
+export const helmetDefaults: Props = {
   title: 'Home',
   titleTemplate: 'Boilerplate - %s',
-};
+}
 
-export const spinConfig = {
+export const spinConfig: SpinnerConfig = {
   lines: 13,
   length: 4,
   width: 3,
@@ -25,4 +28,4 @@ export const spinConfig = {
   shadow: false,
   hwaccel: false,
   position: 'absolute',
-};
+}

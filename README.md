@@ -1,6 +1,8 @@
 [![kickup-react](https://s3.eu-central-1.amazonaws.com/github-banner/kickup-react.jpg)](#)
 
 <p align="center">
+<a href='https://coveralls.io/github/kreativgebiet/kickup-react?branch=master'><img src='https://coveralls.io/repos/github/kreativgebiet/kickup-react/badge.svg?branch=master' alt='Coverage Status' /></a>
+<a href="https://circleci.com/gh/kreativgebiet/kickup-react"><img src="https://img.shields.io/circleci/project/github/kreativgebiet/kickup-react.svg" /></a>
 <a href="https://github.com/kreativgebiet/kickup-react/releases"><img src="https://img.shields.io/github/release/kreativgebiet/kickup-react.svg" /></a>
 <a href="https://david-dm.org/kreativgebiet/kickup-react" target="_blank"><img src="https://img.shields.io/david/kreativgebiet/kickup-react.svg" /></a>
 <a href="https://david-dm.org/kreativgebiet/kickup-react?type=dev" target="_blank"><img src="https://img.shields.io/david/dev/kreativgebiet/kickup-react.svg" /></a>
@@ -8,7 +10,7 @@
 
 ## Why another boilerplate?
 
-We at [Kreativgebiet](https://kreativgebiet.com) aim to move fast and always on the bleeding-edge of technology. That's why we created our own boilerplate. Of course, we started with the boilerplate from [TJ](https://github.com/tj/frontend-boilerplate) and continued from where he left.
+We at [Kreativgebiet](https://kreativgebiet.com)/[Fintory](https://fintory.com) aim to move fast and always on the bleeding-edge of technology. That's why we created our own boilerplate. Of course, we started with the boilerplate from [TJ](https://github.com/tj/frontend-boilerplate) and continued from where he left.
 Since we always want to used bleeding-edge, we needed to have the ability to quickly adapt the boilerplate to our latest needs. That's, why `kickup-react` is here.
 
 ## What's in there?
@@ -20,8 +22,10 @@ Since we always want to used bleeding-edge, we needed to have the ability to qui
 | :nut_and_bolt: Webpack | Compilation of React and all other modules |
 | :syringe: Babel | Using ES6 things in ES5 browsers right now |
 | :paintbrush: aphrodite | Excellent CSS-in-JS framework |
+| :sparkles: Flow | Type checker for ES6 and javascript |
 | :bug: eslint | Linting the Javascript-code |
 | :bomb: immutable.js | Make things immutable (and comparable) |
+| :boom: CircleCI | Automate deployments and integration tasks |
 
 ## How to set it up?
 

@@ -1,16 +1,14 @@
+import path from 'path'
+import paths from './paths'
 
-import path from 'path';
-import paths from './paths';
-
-const { NODE_ENV } = process.env;
+const { NODE_ENV } = process.env
 
 module.exports = {
   context: paths.appBuild,
   entry: {
-    jsx: [
-      NODE_ENV === 'development' && 'react-hot-loader/patch',
-      './index.js',
-    ].filter(entry => !!entry),
+    jsx: [NODE_ENV === 'development' && 'react-hot-loader/patch', './index.js'].filter(
+      entry => !!entry
+    ),
     vendor: [
       'react',
       'react-dom',
@@ -20,7 +18,6 @@ module.exports = {
       'react-router-redux',
       'redux',
       'history',
-      'immutable',
       'classnames',
       'normalizr',
     ],
@@ -50,15 +47,12 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@root': path.resolve(paths.appBuild),
-      '@assets': path.resolve(paths.appBuild, 'assets'),
-      '@pages': path.resolve(paths.appBuild, 'pages'),
-      '@components': path.resolve(paths.appBuild, 'components'),
-      '@modules': path.resolve(paths.appBuild, 'modules'),
+      app: path.resolve(paths.appBuild),
+      assets: path.resolve(paths.appBuild, 'assets'),
+      pages: path.resolve(paths.appBuild, 'pages'),
+      components: path.resolve(paths.appBuild, 'components'),
+      modules: path.resolve(paths.appBuild, 'modules'),
     },
-    modules: [
-      path.resolve('./'),
-      'node_modules',
-    ],
+    modules: [path.resolve('./'), 'node_modules'],
   },
-};
+}

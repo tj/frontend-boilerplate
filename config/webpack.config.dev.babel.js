@@ -1,7 +1,6 @@
-
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import baseConfig from './webpack.config.common.js';
+import webpack from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import baseConfig from './webpack.config.common.js'
 
 module.exports = {
   ...baseConfig,
@@ -27,4 +26,4 @@ module.exports = {
       template: 'index.html',
     }),
   ],
-};
+}

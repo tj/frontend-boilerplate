@@ -1,7 +1,8 @@
-import { StyleSheet } from 'aphrodite';
+// @flow
+import { StyleSheet } from 'aphrodite'
 
 export default StyleSheet.create({
-  main: {
+  button: {
     backgroundColor: '#808080',
     color: 'white',
     textDecoration: 'none',
@@ -30,7 +31,7 @@ export default StyleSheet.create({
       cursor: 'not-allowed',
     },
   },
-  main__spinner: {
+  button__spinner: {
     display: 'inline-block',
     width: '100%',
     transitionDuration: '250ms',
@@ -40,13 +41,13 @@ export default StyleSheet.create({
     left: 0,
     transform: 'translate3d(0, 0, 0)',
   },
-  main__content: {
+  'button__spinner--active': {
+    transform: 'translate3d(0, 2.5rem, 0)',
+  },
+  button__content: {
     display: 'inline-block',
     width: '100%',
     transitionDuration: '250ms',
     transform: 'translate3d(0, 0, 0)',
   },
-  main__loading__active: {
-    transform: 'translate3d(0, 2.5rem, 0)',
-  },
-});
+})

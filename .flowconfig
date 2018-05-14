@@ -1,10 +1,27 @@
 [ignore]
 .*/test/.*
+.*/node_modules/graphviz/documentation.json
 .*/node_modules/eslint-plugin-jsx-a11y/src/.*
+.*/flow-typed/**/*
+.*/**/*.test.js
 
 [include]
-client/*
 
 [libs]
+flow-typed
 
 [options]
+esproposal.decorators=ignore
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+
+module.ignore_non_literal_requires=true
+
+module.name_mapper='.*\(.(css|json|png|jpg)\)' -> 'empty/object'
+module.name_mapper='^app' ->'<PROJECT_ROOT>/client'
+module.name_mapper='^assets' ->'<PROJECT_ROOT>/client/assets'
+module.name_mapper='^utils' ->'<PROJECT_ROOT>/client/utils'
+module.name_mapper='^pages' ->'<PROJECT_ROOT>/client/pages'
+module.name_mapper='^components' ->'<PROJECT_ROOT>/client/components'
+module.name_mapper='^modules' ->'<PROJECT_ROOT>/client/modules'
+module.name_mapper='^constants' ->'<PROJECT_ROOT>/client/constants'
+module.name_mapper='^services' ->'<PROJECT_ROOT>/client/services'

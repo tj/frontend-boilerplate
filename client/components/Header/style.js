@@ -1,4 +1,5 @@
-import { StyleSheet } from 'aphrodite';
+// @flow
+import { StyleSheet } from 'aphrodite'
 
 export default StyleSheet.create({
   main: {
@@ -14,4 +15,4 @@ export default StyleSheet.create({
     backgroundPosition: 'center',
     backgroundSize: '51px 45px',
   },
-});
+})

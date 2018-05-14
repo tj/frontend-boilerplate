@@ -1,31 +1,26 @@
-/* eslint-disable no-underscore-dangle, global-require */
-import { createStore, applyMiddleware, compose } from 'redux';
+// @flow
+import { createStore, applyMiddleware, compose } from 'redux'
+import type { Store } from 'redux'
 
-import middleware from './middleware';
-import reducers from './reducers';
+import middleware from './middleware'
+import { rootReducer } from './reducers'
+import type { State, Action } from './types'
 
-/*
- * If `redux-dev-tools` are available the `compose` function from those is used
- * otherwise the `compose` function from `redux` is used.
- */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export const configureStore = (): Store<State, Action> => {
+  /*
+   * If `redux-dev-tools` are available the `compose` function from those is used
+   * otherwise the `compose` function from `redux` is used.
+   */
 
-/*
- * Apply the needed middleware and reducers to the store and create the store
- * for later export
- */
-const store = createStore(reducers, composeEnhancers(
-  applyMiddleware(...middleware),
-));
+  // eslint-disable-next-line no-underscore-dangle
+  const composeEnhancers: Function = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-/*
- * Activate react-hot-loader for reducers
- */
-if (process.env.NODE_ENV === 'development' && module.hot) {
-  module.hot.accept('./reducers', () => {
-    const nextReducer = require('./reducers');
-    store.replaceReducer(nextReducer);
-  });
+  /*
+   * Apply the needed middleware and reducers to the store and create the store
+   * for later export
+   */
+
+  return createStore(rootReducer, composeEnhancers(applyMiddleware(...middleware)))
 }
 
-export default store;
+export const store: Store<State, Action> = configureStore()
