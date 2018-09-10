@@ -11,7 +11,7 @@ class TodoTextInput extends Component {
     }
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     const text = e.target.value.trim()
     if (e.which === 13) {
       this.props.onSave(text)
@@ -19,18 +19,18 @@ class TodoTextInput extends Component {
         this.setState({ text: '' })
       }
     }
-  }
+  };
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.setState({ text: e.target.value })
-  }
+  };
 
-  handleBlur(e) {
+  handleBlur = (e) => {
     const text = e.target.value.trim()
     if (!this.props.newTodo) {
       this.props.onSave(text)
     }
-  }
+  };
 
   render() {
     const classes = classnames({
@@ -44,9 +44,9 @@ class TodoTextInput extends Component {
         autoFocus="true"
         placeholder={this.props.placeholder}
         value={this.state.text}
-        onBlur={::this.handleBlur}
-        onChange={::this.handleChange}
-        onKeyDown={::this.handleSubmit} />
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        onKeyDown={this.handleSubmit} />
     )
   }
 }
