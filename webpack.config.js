@@ -1,12 +1,12 @@
 var rucksack = require('rucksack-css')
 var webpack = require('webpack')
 var path = require('path')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   context: path.join(__dirname, './client'),
   entry: {
     jsx: './index.js',
-    html: './index.html',
     vendor: [
       'react',
       'react-dom',
@@ -22,10 +22,6 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-        test: /\.html$/,
-        loader: 'file?name=[name].[ext]'
-      },
       {
         test: /\.css$/,
         include: /client/,
@@ -62,6 +58,12 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
+    }),
+    new HtmlWebpackPlugin({
+      chunksSortMode: 'dependency',
+      hash: true,
+      inject: 'body',
+      template: './index.html'
     })
   ],
   devServer: {
