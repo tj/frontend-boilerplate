@@ -24,7 +24,6 @@
     "style-loader": "^0.13.0",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
-    "webpack-hot-middleware": "^2.7.1",
     "babel-runtime": "^6.5.0",
     "classnames": "^2.2.3",
     "react": "^15.0.0",
