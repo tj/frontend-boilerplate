@@ -2,19 +2,25 @@
 import React, { Component } from 'react'
 import TodoItem from '../TodoItem'
 import Footer from '../Footer'
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../../constants/filters'
 import style from './style.css'
+import {TWRIndexFront, TWRShowFront, TWRUpdateFront, mapIf} from 'two-way-rest'
+import classnames from 'classnames'
+import {SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED} from './../../constants/filters'
 
-const TODO_FILTERS = {
-  [SHOW_ALL]: () => true,
-  [SHOW_ACTIVE]: todo => !todo.completed,
-  [SHOW_COMPLETED]: todo => todo.completed
+function filterTasks(filter, tasks){
+  const filterType = filter ? filter.get('type') : '';
+
+  switch(filterType){
+    case SHOW_COMPLETED:
+      return tasks.toSeq().filter(v=>v.get('completed')).toMap()
+    case SHOW_ACTIVE:
+      return tasks.toSeq().filter(v=>!v.get('completed')).toMap()
+  }
+  return tasks
 }
-
 class MainSection extends Component {
   constructor(props, context) {
     super(props, context)
-    this.state = { filter: SHOW_ALL }
   }
 
   handleClearCompleted() {
@@ -27,24 +33,23 @@ class MainSection extends Component {
   handleShow(filter) {
     this.setState({ filter })
   }
-
-  renderToggleAll(completedCount) {
-    const { todos, actions } = this.props
-    if (todos.length > 0) {
+  renderToggleAll(tasks, allCompleted) {
+    if (tasks.instance().size > 0) {
       return <input
         className={style.toggleAll}
         type="checkbox"
-        checked={completedCount === todos.length}
-        onChange={actions.completeAll} />
+        checked={allCompleted}
+        onChange={
+          ()=>tasks.custom( state=>state.set( 'tasks', 
+            state.get('tasks').toSeq().map(v=>v.set('completed', !allCompleted)).toMap()
+          ))
+        }    
+      />
     }
   }
 
-  renderFooter(completedCount) {
-    const { todos } = this.props
-    const { filter } = this.state
-    const activeCount = todos.length - completedCount
-
-    if (todos.length) {
+  renderFooter(tasks) {
+    if (tasks.instances.size) {
       return (
         <Footer completedCount={completedCount}
           activeCount={activeCount}
@@ -54,26 +59,34 @@ class MainSection extends Component {
       )
     }
   }
-
   render() {
-    const { todos, actions } = this.props
-    const { filter } = this.state
-
-    const filteredTodos = todos.filter(TODO_FILTERS[filter])
-    const completedCount = todos.reduce((count, todo) => {
-      return todo.completed ? count + 1 : count
-    }, 0)
-
     return (
-      <section className={style.main}>
-        {this.renderToggleAll(completedCount)}
-        <ul className={style.normal}>
-          {filteredTodos.map(todo =>
-            <TodoItem key={todo.id} todo={todo} {...actions} />
-          )}
-        </ul>
-        {this.renderFooter(completedCount)}
-      </section>
+      <TWRIndexFront tree='tasks' replace={(tasks)=>{
+        const allTasks = tasks.instance().size;
+        const completed = tasks.instance().toSeq().filter(v=>v.get('completed')).count()
+        const active = allTasks - completed
+        const allCompleted = allTasks === completed
+        return <section className={style.main}>  
+          {this.renderToggleAll(tasks, allCompleted)}
+          <TWRShowFront forceRender tasks={tasks} tree='filters/1' replace={filter=>{
+            return <ul className={style.normal}>
+              {mapIf(filterTasks(filter.instance(), filter.props.tasks.instances()), task => 
+                <TWRUpdateFront instance={task} replace={(updateTask)=>{
+                  return <TodoItem updateTask={updateTask} task={updateTask.props.instance}/>
+                }} />
+              )}
+            </ul>
+          }} />
+          {
+          
+          <Footer completedCount={completed}
+            activeCount={active} 
+          />
+            
+          }
+          
+        </section>  
+      }} />
     )
   }
 }

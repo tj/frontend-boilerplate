@@ -1,22 +1,11 @@
-
-import { Router, Route, browserHistory } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
-import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom'
 import React from 'react'
+import genApp from './App'
+import preApp from './containers/App/'
+const App = genApp(preApp);
+const rootEl = document.getElementById('root')
 
-import App from './containers/App'
-import configure from './store'
-
-const store = configure()
-const history = syncHistoryWithStore(browserHistory, store)
-
-ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={App}>
-      </Route>
-    </Router>
-  </Provider>,
-  document.getElementById('root')
-)
+ReactDOM.render(<App />
+  ,
+  rootEl
+)	

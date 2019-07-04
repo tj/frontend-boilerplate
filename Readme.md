@@ -1,3 +1,16 @@
+# Actionless Redux Boilerplate
+This is a modified version of TJ's frontend boilerplate that uses the two-way-rest plugin instead of the traditional redux-connect-action-reducer combination to change the application state.
+
+###Two Way Rest Plugin
+https://github.com/l2silver/two-way-rest
+
+###More Extensive Two Way Rest boilerplate
+https://github.com/l2silver/two-way-rest-boilerplate
+
+###Original boilerplate
+https://github.com/tj/frontend-boilerplate
+
+*Original Readme*
 
 __I don't use this anymore, it's unsupported, I'd recommend https://parceljs.org/
 

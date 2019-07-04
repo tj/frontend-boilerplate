@@ -1,62 +1,47 @@
 
 import React, { Component } from 'react'
-import TodoTextInput from '../TodoTextInput'
+import TodoTextInput from '../TodoTextInput/'
 import classnames from 'classnames'
 import style from './style.css'
-
+import {TWRDestroyFront} from 'two-way-rest'
 class TodoItem extends Component {
   constructor(props, context) {
     super(props, context)
-    this.state = {
-      editing: false
-    }
   }
-
-  handleDoubleClick() {
-    this.setState({ editing: true })
-  }
-
-  handleSave(id, text) {
-    if (text.length === 0) {
-      this.props.deleteTodo(id)
-    } else {
-      this.props.editTodo({ id, text })
-    }
-    this.setState({ editing: false })
-  }
-
   render() {
-    const {todo, completeTodo, deleteTodo} = this.props
-
+    const task = this.props.task
+    const updateTask = this.props.updateTask;
     let element
-    if (this.state.editing) {
+    if (task.get('editing')) {
       element = (
-        <TodoTextInput text={todo.text}
-           editing={this.state.editing}
-           onSave={(text) => this.handleSave(todo.id, text)} />
+        <TodoTextInput 
+          value={task.get('name')}
+          editing
+          onSave={(text) => updateTask.submitContent({editing: false})} />
       )
     } else {
+
       element = (
         <div className={style.view}>
           <input className={style.toggle}
              type="checkbox"
-             checked={todo.completed}
-             onChange={() => completeTodo(todo.id)} />
-
-          <label onDoubleClick={::this.handleDoubleClick}>
-            {todo.text}
+             checked={task.get('completed')}
+             onChange={() => updateTask.submitContent({completed: !task.get('completed')})} />
+          <label onDoubleClick={()=>updateTask.submitContent({editing: true})} >
+            {task.get('name')}
           </label>
-
-          <button className={style.destroy} onClick={() => deleteTodo(todo.id)} />
+          <TWRDestroyFront noPrompt instance={task}>
+            <button className={style.destroy} />
+          </TWRDestroyFront>
         </div>
       )
     }
 
     // TODO: compose
     const classes = classnames({
-      [style.completed]: todo.completed,
-      [style.editing]: this.state.editing,
-      [style.normal]: !this.state.editing
+      [style.completed]: task.get('completed'),
+      [style.editing]: task.get('editing'),
+      [style.normal]: !task.get('editing')
     })
 
     return (
